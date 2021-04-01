@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "echo 'Nothing to see here...'",
     "start": "browser-sync start --server public --files 'public/**'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
