@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "browser-sync start --server . --files './**'",
+    "start": "browser-sync start --server public --files 'public/**'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Rafal Pastuszak <rafal.pastuszak@gmail.com>",

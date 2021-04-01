@@ -150,7 +150,7 @@ getPreloadedImages(balloonSprites).then((balloons) => {
 
   sendToTheFarmToPlayWithOtherPuppies({
     tickDuration: 100,
-    chancePerTick: 1 / 20,
+    chancePerTick: 1 / 10,
     getAll,
   });
 });

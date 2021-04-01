@@ -17,10 +17,10 @@ html {
 }
 
 .floor {
-  width: 100vw;
+  width: 100vh;
   height: 5vh;
-  background: url(./floor.png) no-repeat top;
-  background-size: cover;
+  background: url(./floor.png) no-repeat bottom;
+  background-size: 100%;
   position: absolute;
   z-index: 1;
   bottom: 0;
