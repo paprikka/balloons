@@ -9,22 +9,27 @@ html {
   padding: 0;
   margin: 0;
   overflow: hidden;
+  background: #5fafff;
+}
+
+.background {
+  opacity: 0.2;
 }
 
 .floor {
   width: 100vh;
   height: 5vh;
-  background: url(./floor.png) no-repeat;
+  background: url(./floor.png) no-repeat bottom;
   background-size: 100%;
   position: absolute;
+  z-index: 1;
   bottom: 0;
-  transform: translate3d(0, 100%, 0);
 }
 
-.dead {
-  width: 20vw;
-  height: 10vw;
-  background: url(./dead.png) no-repeat;
+.floor__dead {
+  width: 20vh;
+  height: 20vh;
+  background: url(./dead.png) no-repeat left bottom;
   background-size: contain;
   position: absolute;
   bottom: 2vw;
@@ -32,11 +37,16 @@ html {
 }
 
 @media (max-aspect-ratio: 1) {
-  .dead {
-    width: 20vh;
-    height: 10vh;
+  .floor__dead {
+    width: 20vw;
+    height: 20vw;
   }
 }
 
-.balloon {
+.death {
+  display: block;
+  width: 200px;
+  height: 300px;
+  background: url(./spritesheet.png) no-repeat right;
+  transform: translate3d(-70px, -30px, 0);
 }
