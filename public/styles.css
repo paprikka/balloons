@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.floor {
+  width: 100vh;
+  height: 5vh;
+  background: url(./floor.png) no-repeat;
+  background-size: 100%;
+  position: absolute;
+  bottom: 0;
+  transform: translate3d(0, 100%, 0);
+}
+
+.dead {
+  width: 20vw;
+  height: 10vw;
+  background: url(./dead.png) no-repeat;
+  background-size: contain;
+  position: absolute;
+  bottom: 2vw;
+  left: 5vw;
+}
+
+@media (max-aspect-ratio: 1) {
+  .dead {
+    width: 20vh;
+    height: 10vh;
+  }
+}
+
+.balloon {
+}
