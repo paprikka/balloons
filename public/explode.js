@@ -1,14 +1,28 @@
 const wait = (timeout) =>
   new Promise((resolve) => setTimeout(resolve, timeout));
 
+const range = (from, to) =>
+  [...Array(to - from + 1).keys()].map((i) => i + from);
+
+const makeTimeline = (input) =>
+  input.reduce(
+    (all, [from, to, times]) => [
+      ...all,
+      ...Array(times)
+        .fill(range(from, to))
+        .flatMap((_) => _),
+    ],
+    []
+  );
+
 export const addExplosion = (parent, parentWidth, parentHeight) => {
   const parentRect = parent.getBoundingClientRect();
   const offset = { x: -70, y: -30 };
   const sheet = {
-    columns: 20,
+    columns: 25,
     columnWidth: 320,
     columnHeight: 480,
-    src: "./spritesheet.png",
+    src: "./css_sprites.png",
   };
 
   const scaled = {
@@ -35,20 +49,23 @@ export const addExplosion = (parent, parentWidth, parentHeight) => {
   sprite.style.backgroundSize = "100%";
 
   container.appendChild(sprite);
+  const timeline = makeTimeline([
+    [0, 18, 1],
+    [17, 19, 10],
+    [20, 24, 1],
+  ]);
 
   const fps = 16;
   const play = async () => {
-    let max = sheet.columns;
-    while (max--) {
-      sprite.style.left = `${-max * scaled.columnWidth}px`;
+    for (let i = 0; i < timeline.length; i++) {
+      const ind = timeline[i];
+      const offset = ind * scaled.columnWidth;
+      sprite.style.left = `-${offset}px`;
       await wait(1000 / fps);
-      console.log("step");
     }
-
     container.remove();
   };
 
   document.body.appendChild(container);
-
   return { play };
 };

@@ -137,7 +137,7 @@ getPreloadedImages(balloonSprites).then((balloons) => {
   birth({
     images: balloons,
     tickDuration: 100,
-    chancePerTick: 1 / 10,
+    chancePerTick: 1 / 6,
     onAdd: add,
     onRemove: remove,
   });
@@ -150,7 +150,7 @@ getPreloadedImages(balloonSprites).then((balloons) => {
 
   sendToTheFarmToPlayWithOtherPuppies({
     tickDuration: 100,
-    chancePerTick: 1 / 10,
+    chancePerTick: 1 / 11 / 10,
     getAll,
   });
 });
