@@ -26,7 +26,8 @@ const { floor, random } = Math;
 const getRandomArrayEntry = (arr) => arr[floor(random() * arr.length)];
 
 const makeBalloon = ({ naturalHeight, naturalWidth, src }, onComplete) => {
-  const velocityDelta = 0.1;
+  const maxDriftX = 5;
+  const velocityDelta = 0.2;
   const baseVelocity = 1;
   const element = document.createElement("div");
   const width = naturalWidth / 3;
@@ -46,9 +47,10 @@ const makeBalloon = ({ naturalHeight, naturalWidth, src }, onComplete) => {
 
   const timing = { duration: scaledTime };
   const targetY = `calc(-110vh - ${2 * height}px)`;
+  const targetX = `${(random() - 0.5) * 2 * maxDriftX}vw`;
   const keyframes = [
     { transform: `translate3d(0, 0, 0)` },
-    { transform: `translate3d(0, ${targetY}, 0)` },
+    { transform: `translate3d(${targetX}, ${targetY}, 0)` },
   ];
 
   const animation = element.animate(keyframes, timing);
